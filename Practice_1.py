@@ -4,11 +4,8 @@ def num_func():
         try:
             num_input = [int(x) for x in input("Enter numbers separated by spaces: ").split()]
             return num_input
-            break
         except ValueError:
             print("Please enter a number.")
-
-numbers = num_func()
 
 # Logic
 def compute_sum(n):
@@ -24,8 +21,34 @@ def compute_min(n):
     return min(n)
 
 
+def main_menu(option, n):
+    if option == "1":
+        print(f"Sum: {compute_sum(n)}")
+    elif option == "2":
+        print(f"Average: {compute_avg(n):.2f}")
+    elif option == "3":
+        print(f"Highest: {compute_max(n)}")
+    elif option == "4":
+        print(f"Lowest: {compute_min(n)}")
+    else:
+        print("Please select between the options.")
+
+
 # Output
-print(f"Sum: {compute_sum(numbers)}")
-print(f"Average: {compute_avg(numbers):.2f}")
-print(f"Highest: {compute_max(numbers)}")
-print(f"Lowest: {compute_min(numbers)}")
+numbers = num_func()
+
+while True:
+    print("\nChoose an option:")
+    print("1. Sum")
+    print("2. Average")
+    print("3. Highest")
+    print("4. Lowest")
+    print("5. Exit")
+
+    choice = input("Enter a choice: ")
+
+    if choice == "5":
+        print("Goodbye!")
+        break
+    else:
+        main_menu(choice, numbers)
